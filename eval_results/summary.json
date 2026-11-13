@@ -1,0 +1,1179 @@
+{
+  "meta": {
+    "eval_version": "1.0.0",
+    "timestamp": "2026-11-13T21:47:10",
+    "adapter": "inprocess",
+    "model": "deepseek-chat",
+    "temperature": 0.3,
+    "cases_file": "cases.jsonl",
+    "n_cases": 20,
+    "workers": 4,
+    "retries": 2,
+    "year_penalty": 15.0,
+    "elapsed_sec": 9.73
+  },
+  "metrics": {
+    "json_parse_rate": 1.0,
+    "strict_json_rate": 1.0,
+    "repaired_json_rate": 0.0,
+    "required_field_complete_rate": 1.0,
+    "field_rates": {
+      "name": 0.9,
+      "intent": 1.0,
+      "contact": 0.95,
+      "sections": 1.0
+    },
+    "name_accuracy_rate": 1.0,
+    "hallucination_free_rate": 1.0,
+    "avg_hallucination_score": 100.0,
+    "extra_year_total": 0,
+    "composite_score": 100.0,
+    "error_rate": 0.0,
+    "render_ok_rate": 1.0,
+    "render_checked": 20,
+    "avg_placeholders": 3.85,
+    "avg_bullets": 3.05,
+    "long_bullet_total": 0,
+    "missing_leadin_total": 1,
+    "invalid_period_total": 0,
+    "unknown_section_total": 0,
+    "latency_ms_p50": 1690.983700002107,
+    "latency_ms_p95": 2035.4494099987278
+  },
+  "failures": [],
+  "cases": [
+    {
+      "id": "c01",
+      "title": "信息齐全的计算机应届生",
+      "ok": true,
+      "parse_ok": true,
+      "parse_mode": "strict",
+      "strict_json": true,
+      "required_ok": true,
+      "required_fields": [
+        "name",
+        "intent",
+        "contact",
+        "sections"
+      ],
+      "field_present": {
+        "name": true,
+        "intent": true,
+        "contact": true,
+        "sections": true
+      },
+      "missing": [],
+      "placeholders": [],
+      "output_years": [
+        "2022",
+        "2025",
+        "2026"
+      ],
+      "allowed_years": [
+        "2022",
+        "2024",
+        "2025",
+        "2026"
+      ],
+      "extra_years": [],
+      "hallucination_score": 100.0,
+      "name_accuracy": true,
+      "latency_ms": 2042.8,
+      "error": null,
+      "render_error": null,
+      "extra_orgs": [],
+      "quality": {
+        "placeholders": 2,
+        "bullets": 5,
+        "long_bullets": 0,
+        "missing_leadin": 0,
+        "invalid_periods": [],
+        "unknown_sections": []
+      },
+      "usage": {
+        "prompt_tokens": 969,
+        "completion_tokens": 322,
+        "total_tokens": 1291
+      },
+      "raw_excerpt": "{\"name\":\"林晓桐\",\"intent\":\"AI助理工程师 / 测试开发\",\"contact\":[{\"label\":\"电话\",\"value\":\"13800138000\"},{\"label\":\"邮箱\",\"value\":\"linxiaotong@example.com\"},{\"label\":\"性别\",\"value\":\"女\"},{\"label\":\"年龄\",\"value\":\"22岁\"},{\"label\":\"最高学历\",\"value\":\"本科\"},{\"label\":\"政治面貌\",\"value\":\"共青团员\"}],\"sections\":[{\"title\":\"教育经历\",\"icon\":\"🎓\",\"entries\":[{\"period\":\"2022.9-2026.6\",\"org\":\"[学校名称]\",\"role\":\"计算机科学与技术 | 本科\",\"title\":\"\",\"bullets\":[\"**学分绩点** GPA 3.6/4.0，专业排名前 15%\",\"**奖学金** 获校级二等奖学金\"]}]},{\"title\":\"项目经历\",\"icon\":\"📁\",\"entries\":[{\"period\":\"\",\""
+    },
+    {
+      "id": "c02",
+      "title": "素材没写姓名（只留昵称）",
+      "ok": true,
+      "parse_ok": true,
+      "parse_mode": "strict",
+      "strict_json": true,
+      "required_ok": true,
+      "required_fields": [
+        "intent",
+        "contact",
+        "sections"
+      ],
+      "field_present": {
+        "name": false,
+        "intent": true,
+        "contact": true,
+        "sections": true
+      },
+      "missing": [],
+      "placeholders": [
+        "name"
+      ],
+      "output_years": [
+        "2021",
+        "2022",
+        "2023"
+      ],
+      "allowed_years": [
+        "2021",
+        "2022",
+        "2023"
+      ],
+      "extra_years": [],
+      "hallucination_score": 100.0,
+      "name_accuracy": null,
+      "latency_ms": 1578.2,
+      "error": null,
+      "render_error": null,
+      "extra_orgs": [],
+      "quality": {
+        "placeholders": 3,
+        "bullets": 2,
+        "long_bullets": 0,
+        "missing_leadin": 0,
+        "invalid_periods": [],
+        "unknown_sections": []
+      },
+      "usage": {
+        "prompt_tokens": 897,
+        "completion_tokens": 226,
+        "total_tokens": 1123
+      },
+      "raw_excerpt": "{\"name\":\"[姓名]\",\"intent\":\"外贸业务员 / 跨境电商运营\",\"contact\":[{\"label\":\"电话\",\"value\":\"15912345678\"},{\"label\":\"邮箱\",\"value\":\"apple2023@example.com\"},{\"label\":\"性别\",\"value\":\"女\"},{\"label\":\"年龄\",\"value\":\"24\"},{\"label\":\"最高学历\",\"value\":\"本科\"},{\"label\":\"政治面貌\",\"value\":\"群众\"}],\"sections\":[{\"title\":\"教育经历\",\"icon\":\"🎓\",\"entries\":[{\"period\":\"2021.9-2023.6\",\"org\":\"[学校名称]\",\"role\":\"英语 | 本科（专科起点专升本）\",\"title\":\"\",\"bullets\":[]}]},{\"title\":\"实习经历\",\"icon\":\"💼\",\"entries\":[{\"period\":\"2022.7-2022.9\",\"org\":\"[公司名称]\",\"role\":\"运营助理\",\"title\":\"\","
+    },
+    {
+      "id": "c03",
+      "title": "只给电话、没有邮箱",
+      "ok": true,
+      "parse_ok": true,
+      "parse_mode": "strict",
+      "strict_json": true,
+      "required_ok": true,
+      "required_fields": [
+        "name",
+        "intent",
+        "contact",
+        "sections"
+      ],
+      "field_present": {
+        "name": true,
+        "intent": true,
+        "contact": true,
+        "sections": true
+      },
+      "missing": [],
+      "placeholders": [
+        "contact[1].value",
+        "contact[2].value",
+        "contact[3].value",
+        "contact[5].value"
+      ],
+      "output_years": [
+        "2021",
+        "2024",
+        "2025"
+      ],
+      "allowed_years": [
+        "2021",
+        "2024",
+        "2025"
+      ],
+      "extra_years": [],
+      "hallucination_score": 100.0,
+      "name_accuracy": true,
+      "latency_ms": 1753.1,
+      "error": null,
+      "render_error": null,
+      "extra_orgs": [],
+      "quality": {
+        "placeholders": 7,
+        "bullets": 2,
+        "long_bullets": 0,
+        "missing_leadin": 0,
+        "invalid_periods": [],
+        "unknown_sections": []
+      },
+      "usage": {
+        "prompt_tokens": 876,
+        "completion_tokens": 232,
+        "total_tokens": 1108
+      },
+      "raw_excerpt": "{\"name\":\"周明\",\"intent\":\"机械工程师\",\"contact\":[{\"label\":\"电话\",\"value\":\"13755556666\"},{\"label\":\"邮箱\",\"value\":\"[邮箱]\"},{\"label\":\"性别\",\"value\":\"[性别]\"},{\"label\":\"年龄\",\"value\":\"[年龄]\"},{\"label\":\"最高学历\",\"value\":\"本科\"},{\"label\":\"政治面貌\",\"value\":\"[政治面貌]\"}],\"sections\":[{\"title\":\"教育经历\",\"icon\":\"🎓\",\"entries\":[{\"period\":\"2021.9-2025.6\",\"org\":\"[学校名称]\",\"role\":\"机械设计制造及其自动化 | 本科\",\"title\":\"\",\"bullets\":[]}]},{\"title\":\"实习经历\",\"icon\":\"💼\",\"entries\":[{\"period\":\"2024.7-2024.8\",\"org\":\"[公司名称]\",\"role\":\"[实习岗位]\",\"title\":\"\",\"bullets\":[\"**零件测"
+    },
+    {
+      "id": "c04",
+      "title": "无正式实习、项目为主",
+      "ok": true,
+      "parse_ok": true,
+      "parse_mode": "strict",
+      "strict_json": true,
+      "required_ok": true,
+      "required_fields": [
+        "name",
+        "intent",
+        "contact",
+        "sections"
+      ],
+      "field_present": {
+        "name": true,
+        "intent": true,
+        "contact": true,
+        "sections": true
+      },
+      "missing": [],
+      "placeholders": [],
+      "output_years": [
+        "2019",
+        "2023",
+        "2024"
+      ],
+      "allowed_years": [
+        "2019",
+        "2023",
+        "2024"
+      ],
+      "extra_years": [],
+      "hallucination_score": 100.0,
+      "name_accuracy": true,
+      "latency_ms": 1835.0,
+      "error": null,
+      "render_error": null,
+      "extra_orgs": [],
+      "quality": {
+        "placeholders": 2,
+        "bullets": 4,
+        "long_bullets": 0,
+        "missing_leadin": 0,
+        "invalid_periods": [],
+        "unknown_sections": []
+      },
+      "usage": {
+        "prompt_tokens": 928,
+        "completion_tokens": 285,
+        "total_tokens": 1213
+      },
+      "raw_excerpt": "{\"name\":\"陈思远\",\"intent\":\"数据分析师\",\"contact\":[{\"label\":\"电话\",\"value\":\"13611112222\"},{\"label\":\"邮箱\",\"value\":\"chensiyuan@example.com\"},{\"label\":\"性别\",\"value\":\"男\"},{\"label\":\"年龄\",\"value\":\"25\"},{\"label\":\"最高学历\",\"value\":\"本科\"},{\"label\":\"政治面貌\",\"value\":\"共青团员\"}],\"sections\":[{\"title\":\"教育经历\",\"icon\":\"🎓\",\"entries\":[{\"period\":\"2019.9-2023.6\",\"org\":\"[学校名称]\",\"role\":\"统计学 | 本科\",\"title\":\"\",\"bullets\":[]}]},{\"title\":\"项目经历\",\"icon\":\"📁\",\"entries\":[{\"period\":\"\",\"org\":\"\",\"role\":\"[项目角色]\",\"title\":\"电商销售数据分析项目\",\"bullets\":[\"**数据清洗** 使"
+    },
+    {
+      "id": "c05",
+      "title": "文科转行新媒体",
+      "ok": true,
+      "parse_ok": true,
+      "parse_mode": "strict",
+      "strict_json": true,
+      "required_ok": true,
+      "required_fields": [
+        "name",
+        "intent",
+        "contact",
+        "sections"
+      ],
+      "field_present": {
+        "name": true,
+        "intent": true,
+        "contact": true,
+        "sections": true
+      },
+      "missing": [],
+      "placeholders": [],
+      "output_years": [
+        "2020",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "allowed_years": [
+        "2020",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "extra_years": [],
+      "hallucination_score": 100.0,
+      "name_accuracy": true,
+      "latency_ms": 1479.2,
+      "error": null,
+      "render_error": null,
+      "extra_orgs": [
+        "负责学校"
+      ],
+      "quality": {
+        "placeholders": 3,
+        "bullets": 2,
+        "long_bullets": 0,
+        "missing_leadin": 0,
+        "invalid_periods": [],
+        "unknown_sections": []
+      },
+      "usage": {
+        "prompt_tokens": 928,
+        "completion_tokens": 283,
+        "total_tokens": 1211
+      },
+      "raw_excerpt": "{\"name\":\"苏婉\",\"intent\":\"内容运营 / 文案策划\",\"contact\":[{\"label\":\"电话\",\"value\":\"13522223333\"},{\"label\":\"邮箱\",\"value\":\"suwan@example.com\"},{\"label\":\"性别\",\"value\":\"女\"},{\"label\":\"年龄\",\"value\":\"24\"},{\"label\":\"最高学历\",\"value\":\"本科\"},{\"label\":\"政治面貌\",\"value\":\"中共党员\"}],\"sections\":[{\"title\":\"教育经历\",\"icon\":\"🎓\",\"entries\":[{\"period\":\"2020.9-2024.6\",\"org\":\"[学校名称]\",\"role\":\"汉语言文学 | 本科\",\"title\":\"\",\"bullets\":[]}]},{\"title\":\"实习经历\",\"icon\":\"💼\",\"entries\":[{\"period\":\"2023.7-2023.12\",\"org\":\"[MCN公司名称]\",\"role\":\"[实习岗位名称]\",\"title\":\"\",\"bull"
+    },
+    {
+      "id": "c06",
+      "title": "考研二战 + 空档期 + 在读硕士",
+      "ok": true,
+      "parse_ok": true,
+      "parse_mode": "strict",
+      "strict_json": true,
+      "required_ok": true,
+      "required_fields": [
+        "name",
+        "intent",
+        "contact",
+        "sections"
+      ],
+      "field_present": {
+        "name": true,
+        "intent": true,
+        "contact": true,
+        "sections": true
+      },
+      "missing": [],
+      "placeholders": [],
+      "output_years": [
+        "2018",
+        "2022",
+        "2024",
+        "2027"
+      ],
+      "allowed_years": [
+        "2018",
+        "2022",
+        "2023",
+        "2024",
+        "2027"
+      ],
+      "extra_years": [],
+      "hallucination_score": 100.0,
+      "name_accuracy": true,
+      "latency_ms": 1796.2,
+      "error": null,
+      "render_error": null,
+      "extra_orgs": [],
+      "quality": {
+        "placeholders": 6,
+        "bullets": 2,
+        "long_bullets": 0,
+        "missing_leadin": 0,
+        "invalid_periods": [],
+        "unknown_sections": []
+      },
+      "usage": {
+        "prompt_tokens": 936,
+        "completion_tokens": 313,
+        "total_tokens": 1249
+      },
+      "raw_excerpt": "{\"name\":\"赵一鸣\",\"intent\":\"算法工程实习生\",\"contact\":[{\"label\":\"电话\",\"value\":\"13033334444\"},{\"label\":\"邮箱\",\"value\":\"zhaoyiming@example.com\"},{\"label\":\"性别\",\"value\":\"男\"},{\"label\":\"年龄\",\"value\":\"26\"},{\"label\":\"最高学历\",\"value\":\"硕士（在读）\"},{\"label\":\"政治面貌\",\"value\":\"共青团员\"}],\"sections\":[{\"title\":\"教育经历\",\"icon\":\"🎓\",\"entries\":[{\"period\":\"2024.9-2027.6\",\"org\":\"[学校名称]\",\"role\":\"软件工程 | 硕士\",\"title\":\"\",\"bullets\":[]},{\"period\":\"2018.9-2022.6\",\"org\":\"[学校名称]\",\"role\":\"电子信息工程 | 本科\",\"title\":\"\",\"bullets\":[]}]},{\"title\":\"项目经历\",\"icon\":\"📁"
+    },
+    {
+      "id": "c07",
+      "title": "大专 + 技能证书（素材无 2018）",
+      "ok": true,
+      "parse_ok": true,
+      "parse_mode": "strict",
+      "strict_json": true,
+      "required_ok": true,
+      "required_fields": [
+        "name",
+        "intent",
+        "contact",
+        "sections"
+      ],
+      "field_present": {
+        "name": true,
+        "intent": true,
+        "contact": true,
+        "sections": true
+      },
+      "missing": [],
+      "placeholders": [
+        "contact[1].value"
+      ],
+      "output_years": [
+        "2021",
+        "2023",
+        "2024"
+      ],
+      "allowed_years": [
+        "2021",
+        "2023",
+        "2024"
+      ],
+      "extra_years": [],
+      "hallucination_score": 100.0,
+      "name_accuracy": true,
+      "latency_ms": 1573.1,
+      "error": null,
+      "render_error": null,
+      "extra_orgs": [],
+      "quality": {
+        "placeholders": 4,
+        "bullets": 3,
+        "long_bullets": 0,
+        "missing_leadin": 0,
+        "invalid_periods": [],
+        "unknown_sections": []
+      },
+      "usage": {
+        "prompt_tokens": 896,
+        "completion_tokens": 238,
+        "total_tokens": 1134
+      },
+      "raw_excerpt": "{\"name\":\"李强\",\"intent\":\"设备维护或电气助理工程师\",\"contact\":[{\"label\":\"电话\",\"value\":\"13144445555\"},{\"label\":\"邮箱\",\"value\":\"[邮箱]\"},{\"label\":\"性别\",\"value\":\"男\"},{\"label\":\"年龄\",\"value\":\"22\"},{\"label\":\"最高学历\",\"value\":\"大专\"},{\"label\":\"政治面貌\",\"value\":\"群众\"}],\"sections\":[{\"title\":\"教育经历\",\"icon\":\"🎓\",\"entries\":[{\"period\":\"2021.9-2024.6\",\"org\":\"[学校名称]\",\"role\":\"机电一体化技术 | 大专\",\"title\":\"\",\"bullets\":[\"**证书** 持有低压电工作业证、CAD 中级证书\"]}]},{\"title\":\"实习经历\",\"icon\":\"💼\",\"entries\":[{\"period\":\"2023.7-2024.1\",\"org\":\"[公司名称]\",\"role\":\"[实习岗位]\",\"title\""
+    },
+    {
+      "id": "c08",
+      "title": "海外硕士 + 中英文名",
+      "ok": true,
+      "parse_ok": true,
+      "parse_mode": "strict",
+      "strict_json": true,
+      "required_ok": true,
+      "required_fields": [
+        "name",
+        "intent",
+        "contact",
+        "sections"
+      ],
+      "field_present": {
+        "name": true,
+        "intent": true,
+        "contact": true,
+        "sections": true
+      },
+      "missing": [],
+      "placeholders": [],
+      "output_years": [
+        "2018",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "allowed_years": [
+        "2018",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "extra_years": [],
+      "hallucination_score": 100.0,
+      "name_accuracy": true,
+      "latency_ms": 1122.5,
+      "error": null,
+      "render_error": null,
+      "extra_orgs": [],
+      "quality": {
+        "placeholders": 4,
+        "bullets": 2,
+        "long_bullets": 0,
+        "missing_leadin": 0,
+        "invalid_periods": [],
+        "unknown_sections": []
+      },
+      "usage": {
+        "prompt_tokens": 905,
+        "completion_tokens": 258,
+        "total_tokens": 1163
+      },
+      "raw_excerpt": "{\"name\":\"王雨桐\",\"intent\":\"数据产品经理\",\"contact\":[{\"label\":\"电话\",\"value\":\"13255556666\"},{\"label\":\"邮箱\",\"value\":\"yutong.wang@example.com\"},{\"label\":\"性别\",\"value\":\"女\"},{\"label\":\"年龄\",\"value\":\"26\"},{\"label\":\"最高学历\",\"value\":\"硕士\"},{\"label\":\"政治面貌\",\"value\":\"群众\"}],\"sections\":[{\"title\":\"教育经历\",\"icon\":\"🎓\",\"entries\":[{\"period\":\"2022.9-2023.12\",\"org\":\"[学校名称]\",\"role\":\"数据科学 | 硕士\",\"title\":\"\",\"bullets\":[]},{\"period\":\"2018.9-2022.6\",\"org\":\"[学校名称]\",\"role\":\"信息管理 | 本科\",\"title\":\"\",\"bullets\":[]}]},{\"title\":\"实习经历\",\"icon\":\"💼\",\"entr"
+    },
+    {
+      "id": "c09",
+      "title": "多段实习的运营岗",
+      "ok": true,
+      "parse_ok": true,
+      "parse_mode": "strict",
+      "strict_json": true,
+      "required_ok": true,
+      "required_fields": [
+        "name",
+        "intent",
+        "contact",
+        "sections"
+      ],
+      "field_present": {
+        "name": true,
+        "intent": true,
+        "contact": true,
+        "sections": true
+      },
+      "missing": [],
+      "placeholders": [],
+      "output_years": [
+        "2021",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "allowed_years": [
+        "2021",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "extra_years": [],
+      "hallucination_score": 100.0,
+      "name_accuracy": true,
+      "latency_ms": 1747.5,
+      "error": null,
+      "render_error": null,
+      "extra_orgs": [],
+      "quality": {
+        "placeholders": 6,
+        "bullets": 3,
+        "long_bullets": 0,
+        "missing_leadin": 0,
+        "invalid_periods": [],
+        "unknown_sections": []
+      },
+      "usage": {
+        "prompt_tokens": 926,
+        "completion_tokens": 308,
+        "total_tokens": 1234
+      },
+      "raw_excerpt": "{\"name\":\"何佳\",\"intent\":\"互联网运营\",\"contact\":[{\"label\":\"电话\",\"value\":\"13366667777\"},{\"label\":\"邮箱\",\"value\":\"hejia@example.com\"},{\"label\":\"性别\",\"value\":\"女\"},{\"label\":\"年龄\",\"value\":\"22岁\"},{\"label\":\"最高学历\",\"value\":\"本科\"},{\"label\":\"政治面貌\",\"value\":\"共青团员\"}],\"sections\":[{\"title\":\"教育经历\",\"icon\":\"🎓\",\"entries\":[{\"period\":\"2021.9-2025.6\",\"org\":\"[学校名称]\",\"role\":\"市场营销 | 本科\",\"title\":\"\",\"bullets\":[]}]},{\"title\":\"实习经历\",\"icon\":\"💼\",\"entries\":[{\"period\":\"2024.7-2024.12\",\"org\":\"字节跳动\",\"role\":\"产品运营实习生\",\"title\":\"\",\"bullets\":[\"**活动跟"
+    },
+    {
+      "id": "c10",
+      "title": "只有在校经历、没有实习",
+      "ok": true,
+      "parse_ok": true,
+      "parse_mode": "strict",
+      "strict_json": true,
+      "required_ok": true,
+      "required_fields": [
+        "name",
+        "intent",
+        "contact",
+        "sections"
+      ],
+      "field_present": {
+        "name": true,
+        "intent": true,
+        "contact": true,
+        "sections": true
+      },
+      "missing": [],
+      "placeholders": [
+        "contact[1].value"
+      ],
+      "output_years": [
+        "2022",
+        "2023",
+        "2025"
+      ],
+      "allowed_years": [
+        "2022",
+        "2023",
+        "2025"
+      ],
+      "extra_years": [],
+      "hallucination_score": 100.0,
+      "name_accuracy": true,
+      "latency_ms": 1102.1,
+      "error": null,
+      "render_error": null,
+      "extra_orgs": [],
+      "quality": {
+        "placeholders": 2,
+        "bullets": 2,
+        "long_bullets": 0,
+        "missing_leadin": 0,
+        "invalid_periods": [],
+        "unknown_sections": []
+      },
+      "usage": {
+        "prompt_tokens": 898,
+        "completion_tokens": 213,
+        "total_tokens": 1111
+      },
+      "raw_excerpt": "{\"name\":\"张浩然\",\"intent\":\"仓储管理或供应链专员\",\"contact\":[{\"label\":\"电话\",\"value\":\"13477778888\"},{\"label\":\"邮箱\",\"value\":\"[邮箱]\"},{\"label\":\"性别\",\"value\":\"男\"},{\"label\":\"年龄\",\"value\":\"21岁\"},{\"label\":\"最高学历\",\"value\":\"大专\"},{\"label\":\"政治面貌\",\"value\":\"共青团员\"}],\"sections\":[{\"title\":\"教育经历\",\"icon\":\"🎓\",\"entries\":[{\"period\":\"2022.9-2025.6\",\"org\":\"[学校名称]\",\"role\":\"物流管理 | 大专\",\"title\":\"\",\"bullets\":[]}]},{\"title\":\"在校经历\",\"icon\":\"🏫\",\"entries\":[{\"title\":\"班级团支书\",\"period\":\"2022.10-2025.5\",\"org\":\"\",\"role\":\"\",\"bullets\":[\"**活动组织** 组织团日活动与志愿"
+    },
+    {
+      "id": "c11",
+      "title": "成绩含糊，不能编造数字",
+      "ok": true,
+      "parse_ok": true,
+      "parse_mode": "strict",
+      "strict_json": true,
+      "required_ok": true,
+      "required_fields": [
+        "name",
+        "intent",
+        "contact",
+        "sections"
+      ],
+      "field_present": {
+        "name": true,
+        "intent": true,
+        "contact": true,
+        "sections": true
+      },
+      "missing": [],
+      "placeholders": [],
+      "output_years": [
+        "2021",
+        "2024",
+        "2025"
+      ],
+      "allowed_years": [
+        "2021",
+        "2024",
+        "2025"
+      ],
+      "extra_years": [],
+      "hallucination_score": 100.0,
+      "name_accuracy": true,
+      "latency_ms": 1726.6,
+      "error": null,
+      "render_error": null,
+      "extra_orgs": [],
+      "quality": {
+        "placeholders": 4,
+        "bullets": 4,
+        "long_bullets": 0,
+        "missing_leadin": 0,
+        "invalid_periods": [],
+        "unknown_sections": []
+      },
+      "usage": {
+        "prompt_tokens": 899,
+        "completion_tokens": 249,
+        "total_tokens": 1148
+      },
+      "raw_excerpt": "{\"name\":\"刘敏\",\"intent\":\"财务/审计助理\",\"contact\":[{\"label\":\"电话\",\"value\":\"13588889999\"},{\"label\":\"邮箱\",\"value\":\"liumin@example.com\"},{\"label\":\"性别\",\"value\":\"女\"},{\"label\":\"年龄\",\"value\":\"22\"},{\"label\":\"最高学历\",\"value\":\"本科\"},{\"label\":\"政治面貌\",\"value\":\"共青团员\"}],\"sections\":[{\"title\":\"教育经历\",\"icon\":\"🎓\",\"entries\":[{\"period\":\"2021.9-2025.6\",\"org\":\"[学校名称]\",\"role\":\"会计学 | 本科\",\"title\":\"\",\"bullets\":[\"**奖学金** 学习成绩良好，曾获[奖学金名称]\"]}]},{\"title\":\"实习经历\",\"icon\":\"💼\",\"entries\":[{\"period\":\"2024.7-2024.9\",\"org\":\"[会计师事务所名称]\",\"role\":\"[实习岗位"
+    },
+    {
+      "id": "c12",
+      "title": "边上课边实习的时间冲突",
+      "ok": true,
+      "parse_ok": true,
+      "parse_mode": "strict",
+      "strict_json": true,
+      "required_ok": true,
+      "required_fields": [
+        "name",
+        "intent",
+        "contact",
+        "sections"
+      ],
+      "field_present": {
+        "name": true,
+        "intent": true,
+        "contact": true,
+        "sections": true
+      },
+      "missing": [],
+      "placeholders": [],
+      "output_years": [
+        "2021",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "allowed_years": [
+        "2021",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "extra_years": [],
+      "hallucination_score": 100.0,
+      "name_accuracy": true,
+      "latency_ms": 1508.9,
+      "error": null,
+      "render_error": null,
+      "extra_orgs": [
+        "年参加学校"
+      ],
+      "quality": {
+        "placeholders": 4,
+        "bullets": 2,
+        "long_bullets": 0,
+        "missing_leadin": 0,
+        "invalid_periods": [],
+        "unknown_sections": []
+      },
+      "usage": {
+        "prompt_tokens": 908,
+        "completion_tokens": 271,
+        "total_tokens": 1179
+      },
+      "raw_excerpt": "{\"name\":\"黄志强\",\"intent\":\"Java后端开发\",\"contact\":[{\"label\":\"电话\",\"value\":\"13699990000\"},{\"label\":\"邮箱\",\"value\":\"huangzq@example.com\"},{\"label\":\"性别\",\"value\":\"男\"},{\"label\":\"年龄\",\"value\":\"22岁\"},{\"label\":\"最高学历\",\"value\":\"本科\"},{\"label\":\"政治面貌\",\"value\":\"共青团员\"}],\"sections\":[{\"title\":\"教育经历\",\"icon\":\"🎓\",\"entries\":[{\"period\":\"2021.9-2025.6\",\"org\":\"[学校名称]\",\"role\":\"软件工程 | 本科\",\"title\":\"\",\"bullets\":[]}]},{\"title\":\"实习经历\",\"icon\":\"💼\",\"entries\":[{\"period\":\"2024.7-2024.12\",\"org\":\"[公司名称]\",\"role\":\"[实习岗位名称]\",\"title\":\"\",\"bullets"
+    },
+    {
+      "id": "c13",
+      "title": "直博科研背景",
+      "ok": true,
+      "parse_ok": true,
+      "parse_mode": "strict",
+      "strict_json": true,
+      "required_ok": true,
+      "required_fields": [
+        "name",
+        "intent",
+        "contact",
+        "sections"
+      ],
+      "field_present": {
+        "name": true,
+        "intent": true,
+        "contact": true,
+        "sections": true
+      },
+      "missing": [],
+      "placeholders": [],
+      "output_years": [
+        "2018",
+        "2022",
+        "2023",
+        "2024",
+        "2027"
+      ],
+      "allowed_years": [
+        "2018",
+        "2022",
+        "2023",
+        "2024",
+        "2027"
+      ],
+      "extra_years": [],
+      "hallucination_score": 100.0,
+      "name_accuracy": true,
+      "latency_ms": 1819.0,
+      "error": null,
+      "render_error": null,
+      "extra_orgs": [],
+      "quality": {
+        "placeholders": 4,
+        "bullets": 7,
+        "long_bullets": 0,
+        "missing_leadin": 0,
+        "invalid_periods": [],
+        "unknown_sections": []
+      },
+      "usage": {
+        "prompt_tokens": 916,
+        "completion_tokens": 364,
+        "total_tokens": 1280
+      },
+      "raw_excerpt": "{\"name\":\"孙雅\",\"intent\":\"生物医药公司研发岗位\",\"contact\":[{\"label\":\"电话\",\"value\":\"13700001111\"},{\"label\":\"邮箱\",\"value\":\"sunya@example.com\"},{\"label\":\"性别\",\"value\":\"女\"},{\"label\":\"年龄\",\"value\":\"26岁\"},{\"label\":\"最高学历\",\"value\":\"博士在读\"},{\"label\":\"政治面貌\",\"value\":\"中共党员\"}],\"sections\":[{\"title\":\"教育经历\",\"icon\":\"🎓\",\"entries\":[{\"period\":\"2022.9-2027.6\",\"org\":\"[学校名称]\",\"role\":\"生物学 | 博士在读\",\"title\":\"\",\"bullets\":[\"**研究方向** 单细胞测序数据分析，使用 R 与 Python 开展数据处理与分析\",\"**科研成果** 2024 年发表一篇二区论文\"]},{\"period\":\"2018.9-2022.6\",\"org\":\"[学校名称]\",\"role\""
+    },
+    {
+      "id": "c14",
+      "title": "护理专业临床实习",
+      "ok": true,
+      "parse_ok": true,
+      "parse_mode": "strict",
+      "strict_json": true,
+      "required_ok": true,
+      "required_fields": [
+        "name",
+        "intent",
+        "contact",
+        "sections"
+      ],
+      "field_present": {
+        "name": true,
+        "intent": true,
+        "contact": true,
+        "sections": true
+      },
+      "missing": [],
+      "placeholders": [],
+      "output_years": [
+        "2020",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "allowed_years": [
+        "2020",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "extra_years": [],
+      "hallucination_score": 100.0,
+      "name_accuracy": true,
+      "latency_ms": 1655.4,
+      "error": null,
+      "render_error": null,
+      "extra_orgs": [
+        "2022年5月参加学校"
+      ],
+      "quality": {
+        "placeholders": 2,
+        "bullets": 3,
+        "long_bullets": 0,
+        "missing_leadin": 0,
+        "invalid_periods": [],
+        "unknown_sections": []
+      },
+      "usage": {
+        "prompt_tokens": 902,
+        "completion_tokens": 285,
+        "total_tokens": 1187
+      },
+      "raw_excerpt": "{\"name\":\"吴静\",\"intent\":\"临床护士\",\"contact\":[{\"label\":\"电话\",\"value\":\"13811112222\"},{\"label\":\"邮箱\",\"value\":\"wujing@example.com\"},{\"label\":\"性别\",\"value\":\"女\"},{\"label\":\"年龄\",\"value\":\"23岁\"},{\"label\":\"最高学历\",\"value\":\"本科\"},{\"label\":\"政治面貌\",\"value\":\"共青团员\"}],\"sections\":[{\"title\":\"教育经历\",\"icon\":\"🎓\",\"entries\":[{\"period\":\"2020.9-2024.6\",\"org\":\"[学校名称]\",\"role\":\"护理学 | 本科\",\"title\":\"\",\"bullets\":[]}]},{\"title\":\"实习经历\",\"icon\":\"💼\",\"entries\":[{\"period\":\"2023.6-2024.4\",\"org\":\"[医院名称]\",\"role\":\"实习护士\",\"title\":\"\",\"bullets\":[\"**科室轮转**"
+    },
+    {
+      "id": "c15",
+      "title": "退役军人跨专业复学",
+      "ok": true,
+      "parse_ok": true,
+      "parse_mode": "strict",
+      "strict_json": true,
+      "required_ok": true,
+      "required_fields": [
+        "name",
+        "intent",
+        "contact",
+        "sections"
+      ],
+      "field_present": {
+        "name": true,
+        "intent": true,
+        "contact": true,
+        "sections": true
+      },
+      "missing": [],
+      "placeholders": [
+        "contact[1].value"
+      ],
+      "output_years": [
+        "2017",
+        "2019",
+        "2022",
+        "2023"
+      ],
+      "allowed_years": [
+        "2017",
+        "2019",
+        "2022",
+        "2023"
+      ],
+      "extra_years": [],
+      "hallucination_score": 100.0,
+      "name_accuracy": true,
+      "latency_ms": 1895.4,
+      "error": null,
+      "render_error": null,
+      "extra_orgs": [],
+      "quality": {
+        "placeholders": 4,
+        "bullets": 4,
+        "long_bullets": 0,
+        "missing_leadin": 0,
+        "invalid_periods": [],
+        "unknown_sections": []
+      },
+      "usage": {
+        "prompt_tokens": 904,
+        "completion_tokens": 265,
+        "total_tokens": 1169
+      },
+      "raw_excerpt": "{\"name\":\"马涛\",\"intent\":\"网络安全运维\",\"contact\":[{\"label\":\"电话\",\"value\":\"13922223333\"},{\"label\":\"邮箱\",\"value\":\"[邮箱]\"},{\"label\":\"性别\",\"value\":\"男\"},{\"label\":\"年龄\",\"value\":\"26岁\"},{\"label\":\"最高学历\",\"value\":\"本科\"},{\"label\":\"政治面貌\",\"value\":\"中共党员\"}],\"sections\":[{\"title\":\"教育经历\",\"icon\":\"🎓\",\"entries\":[{\"period\":\"2019.9-2023.6\",\"org\":\"[学校名称]\",\"role\":\"计算机科学与技术 | 本科\",\"title\":\"\",\"bullets\":[\"**服役复学** 2017.9-2019.9 在部队服役，退伍后复学完成本科学业\",\"**专业认证** 持有 HCIA-datacom 认证\"]}]},{\"title\":\"实习经历\",\"icon\":\"💼\",\"entries\":[{\"period\":\"2022.7-202"
+    },
+    {
+      "id": "c16",
+      "title": "极短素材：无姓名、无年份、无经历",
+      "ok": true,
+      "parse_ok": true,
+      "parse_mode": "strict",
+      "strict_json": true,
+      "required_ok": true,
+      "required_fields": [
+        "intent"
+      ],
+      "field_present": {
+        "name": false,
+        "intent": true,
+        "contact": false,
+        "sections": true
+      },
+      "missing": [
+        "contact 里没有填好的项"
+      ],
+      "placeholders": [
+        "name",
+        "contact[0].value",
+        "contact[1].value",
+        "contact[2].value",
+        "contact[3].value",
+        "contact[4].value",
+        "contact[5].value"
+      ],
+      "output_years": [],
+      "allowed_years": [],
+      "extra_years": [],
+      "hallucination_score": 100.0,
+      "name_accuracy": null,
+      "latency_ms": 1274.8,
+      "error": null,
+      "render_error": null,
+      "extra_orgs": [],
+      "quality": {
+        "placeholders": 9,
+        "bullets": 2,
+        "long_bullets": 0,
+        "missing_leadin": 0,
+        "invalid_periods": [],
+        "unknown_sections": []
+      },
+      "usage": {
+        "prompt_tokens": 826,
+        "completion_tokens": 169,
+        "total_tokens": 995
+      },
+      "raw_excerpt": "{\"name\":\"[姓名]\",\"intent\":\"AI助理工程师\",\"contact\":[{\"label\":\"电话\",\"value\":\"[手机号]\"},{\"label\":\"邮箱\",\"value\":\"[邮箱]\"},{\"label\":\"性别\",\"value\":\"[性别]\"},{\"label\":\"年龄\",\"value\":\"[年龄]\"},{\"label\":\"最高学历\",\"value\":\"[最高学历]\"},{\"label\":\"政治面貌\",\"value\":\"[政治面貌]\"}],\"sections\":[{\"title\":\"项目经历\",\"icon\":\"📁\",\"entries\":[{\"period\":\"\",\"org\":\"\",\"role\":\"[担任角色]\",\"title\":\"[课程作业项目名称]\",\"bullets\":[\"**技术基础** 使用 Python 完成课程作业开发，具备基础编程与调试能力\",\"**大模型应用** 学习并调用大模型 API，完成课程作业中的功能实现\"]}]}]}"
+    },
+    {
+      "id": "c17",
+      "title": "社招机械工程师（5 年经验）",
+      "ok": true,
+      "parse_ok": true,
+      "parse_mode": "strict",
+      "strict_json": true,
+      "required_ok": true,
+      "required_fields": [
+        "name",
+        "intent",
+        "contact",
+        "sections"
+      ],
+      "field_present": {
+        "name": true,
+        "intent": true,
+        "contact": true,
+        "sections": true
+      },
+      "missing": [],
+      "placeholders": [],
+      "output_years": [
+        "2016",
+        "2020",
+        "2023",
+        "2025"
+      ],
+      "allowed_years": [
+        "2016",
+        "2020",
+        "2023",
+        "2025"
+      ],
+      "extra_years": [],
+      "hallucination_score": 100.0,
+      "name_accuracy": true,
+      "latency_ms": 1553.5,
+      "error": null,
+      "render_error": null,
+      "extra_orgs": [
+        "苏州新能源公司",
+        "青岛家电公司"
+      ],
+      "quality": {
+        "placeholders": 3,
+        "bullets": 2,
+        "long_bullets": 0,
+        "missing_leadin": 0,
+        "invalid_periods": [],
+        "unknown_sections": []
+      },
+      "usage": {
+        "prompt_tokens": 911,
+        "completion_tokens": 258,
+        "total_tokens": 1169
+      },
+      "raw_excerpt": "{\"name\":\"郑凯\",\"intent\":\"机械设计工程师\",\"contact\":[{\"label\":\"电话\",\"value\":\"13933334444\"},{\"label\":\"邮箱\",\"value\":\"zhengkai@example.com\"},{\"label\":\"性别\",\"value\":\"男\"},{\"label\":\"年龄\",\"value\":\"28\"},{\"label\":\"最高学历\",\"value\":\"本科\"},{\"label\":\"政治面貌\",\"value\":\"群众\"}],\"sections\":[{\"title\":\"教育经历\",\"icon\":\"🎓\",\"entries\":[{\"period\":\"2016.9-2020.6\",\"org\":\"[学校名称]\",\"role\":\"机械工程 | 本科\",\"title\":\"\",\"bullets\":[]}]},{\"title\":\"实习经历\",\"icon\":\"💼\",\"entries\":[{\"period\":\"2023.7-2025.10\",\"org\":\"[苏州新能源公司名称]\",\"role\":\"机械设计工程师\",\"title\":\"\",\"bullets"
+    },
+    {
+      "id": "c18",
+      "title": "师范生 + 临聘教师经历",
+      "ok": true,
+      "parse_ok": true,
+      "parse_mode": "strict",
+      "strict_json": true,
+      "required_ok": true,
+      "required_fields": [
+        "name",
+        "intent",
+        "contact",
+        "sections"
+      ],
+      "field_present": {
+        "name": true,
+        "intent": true,
+        "contact": true,
+        "sections": true
+      },
+      "missing": [],
+      "placeholders": [],
+      "output_years": [
+        "2019",
+        "2021",
+        "2022",
+        "2023",
+        "2025"
+      ],
+      "allowed_years": [
+        "2019",
+        "2021",
+        "2022",
+        "2023",
+        "2025"
+      ],
+      "extra_years": [],
+      "hallucination_score": 100.0,
+      "name_accuracy": true,
+      "latency_ms": 1755.0,
+      "error": null,
+      "render_error": null,
+      "extra_orgs": [
+        "实习学校"
+      ],
+      "quality": {
+        "placeholders": 4,
+        "bullets": 3,
+        "long_bullets": 0,
+        "missing_leadin": 0,
+        "invalid_periods": [],
+        "unknown_sections": []
+      },
+      "usage": {
+        "prompt_tokens": 914,
+        "completion_tokens": 318,
+        "total_tokens": 1232
+      },
+      "raw_excerpt": "{\"name\":\"林芳\",\"intent\":\"小学语文教师（正式编制）\",\"contact\":[{\"label\":\"电话\",\"value\":\"13944445555\"},{\"label\":\"邮箱\",\"value\":\"linfang@example.com\"},{\"label\":\"性别\",\"value\":\"女\"},{\"label\":\"年龄\",\"value\":\"25\"},{\"label\":\"最高学历\",\"value\":\"本科\"},{\"label\":\"政治面貌\",\"value\":\"共青团员\"}],\"sections\":[{\"title\":\"教育经历\",\"icon\":\"🎓\",\"entries\":[{\"period\":\"2019.9-2023.6\",\"org\":\"[学校名称]\",\"role\":\"小学教育 | 本科\",\"title\":\"\",\"bullets\":[]}]},{\"title\":\"实习经历\",\"icon\":\"💼\",\"entries\":[{\"period\":\"2021.9-2022.1\",\"org\":\"[实习学校名称]\",\"role\":\"班主任助理\",\"title\":\"\",\"bullets"
+    },
+    {
+      "id": "c19",
+      "title": "奖项与数据密集（真实数字需保留）",
+      "ok": true,
+      "parse_ok": true,
+      "parse_mode": "strict",
+      "strict_json": true,
+      "required_ok": true,
+      "required_fields": [
+        "name",
+        "intent",
+        "contact",
+        "sections"
+      ],
+      "field_present": {
+        "name": true,
+        "intent": true,
+        "contact": true,
+        "sections": true
+      },
+      "missing": [],
+      "placeholders": [],
+      "output_years": [
+        "2020",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "allowed_years": [
+        "2020",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "extra_years": [],
+      "hallucination_score": 100.0,
+      "name_accuracy": true,
+      "latency_ms": 1458.8,
+      "error": null,
+      "render_error": null,
+      "extra_orgs": [],
+      "quality": {
+        "placeholders": 2,
+        "bullets": 4,
+        "long_bullets": 0,
+        "missing_leadin": 1,
+        "invalid_periods": [],
+        "unknown_sections": []
+      },
+      "usage": {
+        "prompt_tokens": 942,
+        "completion_tokens": 280,
+        "total_tokens": 1222
+      },
+      "raw_excerpt": "{\"name\":\"许文博\",\"intent\":\"算法工程师\",\"contact\":[{\"label\":\"电话\",\"value\":\"13955556666\"},{\"label\":\"邮箱\",\"value\":\"xuwenbo@example.com\"},{\"label\":\"性别\",\"value\":\"男\"},{\"label\":\"年龄\",\"value\":\"23岁\"},{\"label\":\"最高学历\",\"value\":\"本科\"},{\"label\":\"政治面貌\",\"value\":\"中共党员\"}],\"sections\":[{\"title\":\"教育经历\",\"icon\":\"🎓\",\"entries\":[{\"period\":\"2020.9-2024.6\",\"org\":\"[学校名称]\",\"role\":\"计算机科学与技术 | 本科\",\"title\":\"\",\"bullets\":[\"**学分绩点** GPA 3.82/4.0，专业排名第 7/120\",\"**奖学金** 连续三年获校一等奖学金\",\"**竞赛奖项** 2022.11 获 ACM-ICPC 区域赛铜奖，2023.5 获蓝桥杯省一等奖\"]}]},{\"title"
+    },
+    {
+      "id": "c20",
+      "title": "中英混排的产品实习",
+      "ok": true,
+      "parse_ok": true,
+      "parse_mode": "strict",
+      "strict_json": true,
+      "required_ok": true,
+      "required_fields": [
+        "name",
+        "intent",
+        "contact",
+        "sections"
+      ],
+      "field_present": {
+        "name": true,
+        "intent": true,
+        "contact": true,
+        "sections": true
+      },
+      "missing": [],
+      "placeholders": [],
+      "output_years": [
+        "2021",
+        "2024",
+        "2025"
+      ],
+      "allowed_years": [
+        "2021",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "extra_years": [],
+      "hallucination_score": 100.0,
+      "name_accuracy": true,
+      "latency_ms": 1782.9,
+      "error": null,
+      "render_error": null,
+      "extra_orgs": [
+        "SaaS公司"
+      ],
+      "quality": {
+        "placeholders": 2,
+        "bullets": 3,
+        "long_bullets": 0,
+        "missing_leadin": 0,
+        "invalid_periods": [],
+        "unknown_sections": []
+      },
+      "usage": {
+        "prompt_tokens": 929,
+        "completion_tokens": 407,
+        "total_tokens": 1336
+      },
+      "raw_excerpt": "{\n  \"name\": \"梁若曦\",\n  \"intent\": \"产品经理（PM）\",\n  \"contact\": [\n    {\"label\": \"电话\", \"value\": \"13966667777\"},\n    {\"label\": \"邮箱\", \"value\": \"roxi.liang@example.com\"},\n    {\"label\": \"性别\", \"value\": \"女\"},\n    {\"label\": \"年龄\", \"value\": \"22岁\"},\n    {\"label\": \"最高学历\", \"value\": \"本科\"},\n    {\"label\": \"政治面貌\", \"value\": \"共青团员\"}\n  ],\n  \"sections\": [\n    {\n      \"title\": \"教育经历\",\n      \"icon\": \"🎓\",\n      \"entries\": [\n        {\n          \"period\": \"2021.9-2025.6\",\n          \"org\": \"[学校名称]\",\n          \"role\": \"信息管理与信息系统 |"
+    }
+  ]
+}
